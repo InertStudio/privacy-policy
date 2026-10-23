@@ -3,99 +3,372 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light">
-  <meta name="description" content="Privacy policy for mobile games published by InertStudio, including games displaying Google AdMob ads.">
-  <title>Privacy Policy | InertStudio Mobile Games</title>
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#080d16">
+  <meta name="description" content="Privacy Policy for Android mobile games published by InertGames, including Google AdMob banner, rewarded and interstitial advertising.">
+  <title>Privacy Policy | InertGames</title>
   <style>
-    :root { color-scheme: light; --ink:#172834; --muted:#526471; --line:#dbe5e8; --accent:#087e7b; --bg:#f2f7f7; }
-    * { box-sizing: border-box; }
-    body { margin:0; background:var(--bg); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; line-height:1.72; }
-    header { background:linear-gradient(145deg,#102b33,#0b4140); color:#fff; padding:52px 24px 46px; }
-    .wrap { max-width:840px; margin:auto; }
-    .eyebrow { font-size:12px; letter-spacing:.18em; font-weight:800; text-transform:uppercase; color:#ace9cf; }
-    h1 { font-size:clamp(32px,5vw,48px); line-height:1.2; letter-spacing:-.035em; margin:12px 0; }
-    header p { margin:4px 0; color:#d5e8e4; }
-    main { max-width:840px; margin: -16px auto 46px; padding:36px clamp(20px,5vw,48px) 48px; background:#fff; border:1px solid #e2eaea; box-shadow:0 12px 36px rgba(7,42,48,.05); border-radius:18px; }
-    h2 { margin:34px 0 10px; font-size:20px; letter-spacing:-.02em; }
-    p,li { font-size:15px; }
-    p { margin:0 0 12px; }
-    ul { padding-left:22px; }
-    li { padding-left:2px; margin:6px 0; }
-    a { color:#096f70; text-underline-offset:3px; overflow-wrap:anywhere; }
-    strong { color:#102e38; }
-    .summary { padding:16px 18px; margin:8px 0 28px; background:#e9f6f3; border-left:4px solid var(--accent); border-radius:8px; }
-    .summary p { margin:0; }
-    footer { max-width:840px; margin:0 auto 44px; padding:0 24px; color:var(--muted); font-size:13px; text-align:center; }
-    @media (max-width: 600px){ header{padding-top:34px;padding-bottom:34px;} main{margin:-8px 12px 32px;padding:25px 20px 34px;} h2{font-size:19px;} }
+    :root {
+      color-scheme: dark;
+      --bg: #080d16;
+      --surface: #121c2b;
+      --surface-alt: #172438;
+      --surface-hover: #1e3146;
+      --ink: #e9f0fa;
+      --muted: #a5b4c7;
+      --subtle: #8498ae;
+      --teal: #66e3d1;
+      --teal-bright: #a0ffeb;
+      --line: #29384b;
+      --shadow: 0 24px 65px rgba(0, 5, 14, .34);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 28px; }
+    body {
+      margin: 0;
+      background: radial-gradient(ellipse at 90% 8%, rgba(20, 113, 118, .095), transparent 35%), var(--bg);
+      color: var(--ink);
+      font: 15.5px/1.78 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: #226d72; color: #fff; }
+    a { color: var(--teal); text-underline-offset: 3px; overflow-wrap: anywhere; transition: color .18s ease; }
+    a:hover { color: var(--teal-bright); }
+    a:focus-visible { outline: 3px solid var(--teal); outline-offset: 4px; border-radius: 4px; }
+    strong { color: #f4f8ff; font-weight: 680; }
+    .skip-link {
+      position: absolute; z-index: 100; left: 12px; top: -80px; padding: 9px 15px;
+      border-radius: 9px; color: #06171d; background: var(--teal); font-weight: 700;
+    }
+    .skip-link:focus { top: 12px; }
+    .hero {
+      position: relative; overflow: hidden;
+      background: linear-gradient(118deg, #0b1321 0%, #102237 53%, #0a3338 100%);
+      color: #fff; padding: 0 24px 105px;
+      border-bottom: 1px solid rgba(102, 227, 209, .14);
+    }
+    .hero::before {
+      content: ""; position: absolute; top: -250px; right: -175px;
+      width: 780px; height: 780px; border-radius: 50%; pointer-events: none;
+      background: radial-gradient(circle, rgba(52, 213, 193, .20), rgba(52, 213, 193, 0) 66%);
+    }
+    .hero::after {
+      content: ""; position: absolute; inset: 0; opacity: .13; pointer-events: none;
+      background-image: radial-gradient(#c0f5e9 1px, transparent 1px); background-size: 30px 30px;
+      -webkit-mask-image: linear-gradient(90deg, transparent 32%, #000 100%);
+      mask-image: linear-gradient(90deg, transparent 32%, #000 100%);
+    }
+    .hero-inner { max-width: 1150px; margin: 0 auto; position: relative; z-index: 1; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 29px; }
+    .brand {
+      display: inline-flex; align-items: center; gap: 12px; color: #f6fffe; text-decoration: none;
+      font-size: 18px; font-weight: 760; letter-spacing: -.03em;
+    }
+    .brand:hover { color: var(--teal-bright); }
+    .brand-mark {
+      display: grid; place-items: center; width: 42px; height: 42px;
+      border: 1px solid rgba(152, 255, 238, .35); border-radius: 12px;
+      background: linear-gradient(145deg, #8bf3dd, #26aeaf); color: #07242a;
+      font-size: 15px; font-weight: 900; letter-spacing: -.06em;
+      box-shadow: 0 9px 28px rgba(2, 10, 19, .26);
+    }
+    .top-contact {
+      display: inline-flex; align-items: center; gap: 8px; color: #e1fcf5;
+      border: 1px solid rgba(149, 239, 227, .29); padding: 8px 15px;
+      text-decoration: none; border-radius: 999px; font-size: 13px; font-weight: 650;
+      background: rgba(159, 255, 240, .055); transition: background .2s ease, border-color .2s ease;
+    }
+    .top-contact:hover { background: rgba(113, 231, 212, .16); color: white; border-color: rgba(149, 239, 227, .65); }
+    .hero-copy { max-width: 765px; padding: 80px 0 16px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px; color: #91e7dc;
+      font-size: 12px; font-weight: 780; letter-spacing: .18em; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 22px; height: 2px; border-radius: 2px; background: var(--teal); }
+    h1 { font-size: clamp(40px, 6vw, 68px); line-height: 1.09; font-weight: 790; letter-spacing: -.055em; margin: 20px 0 18px; }
+    .hero-description { color: #bdd0de; margin: 0; max-width: 640px; font-size: clamp(16px, 2vw, 18px); line-height: 1.65; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 30px; }
+    .meta-pill {
+      display: inline-flex; align-items: center; gap: 8px; padding: 6px 13px;
+      font-size: 12.5px; font-weight: 600; color: #d4e9e9;
+      background: rgba(178, 242, 239, .07); border: 1px solid rgba(204, 251, 249, .16);
+      border-radius: 999px;
+    }
+    .meta-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); flex: none; box-shadow: 0 0 12px rgba(102, 227, 209, .6); }
+    .page-shell {
+      max-width: 1198px; margin: -53px auto 0; padding: 0 24px 50px;
+      position: relative; z-index: 2; display: grid;
+      grid-template-columns: 248px minmax(0, 1fr); gap: 22px; align-items: start;
+    }
+    .sidebar, .article {
+      border: 1px solid var(--line); background: var(--surface);
+      box-shadow: var(--shadow); border-radius: 19px;
+    }
+    .sidebar { position: sticky; top: 20px; padding: 26px 14px 22px; }
+    .sidebar-heading { padding: 0 15px 15px; font-size: 11px; font-weight: 850; color: #91a4bb; letter-spacing: .13em; text-transform: uppercase; }
+    .toc { list-style: none; padding: 0; margin: 0; }
+    .toc a {
+      display: flex; gap: 11px; align-items: baseline; border-radius: 9px;
+      padding: 8px 12px; font-size: 13px; line-height: 1.45;
+      color: #b4c4d5; text-decoration: none;
+      transition: background .2s ease, color .2s ease;
+    }
+    .toc a:hover, .toc a:focus-visible { background: #203b45; color: var(--teal-bright); }
+    .toc-num { font-size: 11px; font-weight: 750; color: #7f94ab; font-variant-numeric: tabular-nums; }
+    .sidebar-note {
+      margin: 22px 11px 0; padding: 15px; border-radius: 12px;
+      border: 1px solid #264b50; background: linear-gradient(130deg, #18333c, #172935);
+      color: #a8c3c8; font-size: 12.5px; line-height: 1.6;
+    }
+    .sidebar-note strong { display: block; margin-bottom: 2px; color: #91efe0; }
+    .article { padding: clamp(23px, 4vw, 54px); min-width: 0; }
+    .intro {
+      display: flex; align-items: flex-start; gap: 17px;
+      background: linear-gradient(120deg, #15313b, #1b2b43);
+      border: 1px solid #2b5260; border-radius: 15px;
+      padding: 22px 23px; margin-bottom: 34px;
+    }
+    .intro-symbol {
+      width: 38px; height: 38px; flex: none; border-radius: 11px;
+      background: #214c50; color: #a0ffeb; display: grid; place-items: center;
+      font-size: 20px; font-weight: 760;
+    }
+    .intro-label { text-transform: uppercase; letter-spacing: .12em; font-size: 10.5px; font-weight: 850; color: #8be9df; margin: 0 0 2px; }
+    .intro p:last-child { margin: 0; color: #d1e2ee; font-size: 14px; }
+    .policy-section { border-top: 1px solid var(--line); padding-top: 27px; margin-top: 29px; scroll-margin-top: 25px; }
+    .policy-section:first-of-type { border-top: 0; padding-top: 0; margin-top: 0; }
+    h2 {
+      display: flex; align-items: flex-start; gap: 13px; font-size: clamp(18px, 2.2vw, 21px);
+      font-weight: 780; line-height: 1.42; letter-spacing: -.025em;
+      margin: 0 0 15px; color: #f2f8ff;
+    }
+    .section-number {
+      display: inline-grid; place-items: center; flex: 0 0 31px; width: 31px; height: 31px;
+      border-radius: 9px; font-size: 12px; font-weight: 850;
+      color: #85f0e0; background: #1d3b43; margin-top: 0; letter-spacing: 0;
+    }
+    p { margin: 0 0 13px; }
+    .policy-section p { color: #becbda; }
+    .policy-section p:last-child { margin-bottom: 0; }
+    .policy-section ul { margin: 10px 0 17px; padding-left: 21px; color: #becbda; }
+    .policy-section li { padding-left: 5px; margin: 8px 0; }
+    .policy-section li::marker { color: var(--teal); }
+    .ad-types { display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0 18px; }
+    .ad-type {
+      display: inline-flex; align-items: center; background: #213646;
+      border: 1px solid #335266; border-radius: 999px; padding: 5px 13px;
+      font-size: 12px; font-weight: 700; color: #c8e7e8;
+    }
+    .external-links { list-style: none; padding: 0 !important; display: grid; gap: 9px; }
+    .external-links li { margin: 0; padding: 0; }
+    .external-links a {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 15px; padding: 11px 15px; border-radius: 10px;
+      border: 1px solid #33465c; background: #19283b; text-decoration: none;
+      font-size: 14px; font-weight: 650;
+      transition: background .18s ease, border-color .18s ease;
+    }
+    .external-links a:hover { background: #213d46; border-color: #4b8c8e; }
+    .external-links a::after { content: "↗"; flex: none; font-size: 18px; color: #82bbb9; line-height: 1; }
+    .contact-panel {
+      background: linear-gradient(135deg, #16313a, #1b2a40);
+      padding: 21px 23px; border: 1px solid #30525c; border-radius: 14px;
+    }
+    .contact-panel p { margin-bottom: 8px; color: #c6d5e2; }
+    .contact-panel p:last-child { margin-bottom: 0; }
+    .contact-panel .mail { font-weight: 750; font-size: 17px; }
+    .footer {
+      max-width: 1150px; margin: 0 auto; padding: 4px 24px 39px;
+      color: #8da1b6; font-size: 12.5px;
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+    .footer strong { color: #c7d4e3; }
+    @media (max-width: 920px) {
+      .page-shell { grid-template-columns: minmax(0, 1fr); max-width: 800px; }
+      .sidebar { display: none; }
+      .hero-inner { max-width: 750px; }
+      .hero-copy { padding-top: 66px; }
+    }
+    @media (max-width: 600px) {
+      .hero { padding: 0 18px 83px; }
+      .topbar { padding-top: 19px; }
+      .brand { font-size: 17px; }
+      .top-contact { padding: 7px 10px; font-size: 12px; }
+      .hero-copy { padding-top: 54px; }
+      .hero-description { font-size: 15px; }
+      .hero-meta { gap: 8px; margin-top: 23px; }
+      .meta-pill { font-size: 11.5px; padding: 5px 10px; }
+      .page-shell { margin-top: -38px; padding: 0 12px 30px; }
+      .article { padding: 23px 19px 30px; border-radius: 16px; }
+      .intro { padding: 16px; gap: 12px; }
+      .intro-symbol { width: 32px; height: 32px; }
+      .intro p:last-child { font-size: 13.5px; }
+      .policy-section { padding-top: 24px; margin-top: 24px; }
+      h2 { gap: 10px; }
+      .section-number { flex-basis: 28px; width: 28px; height: 28px; }
+      .footer { padding: 0 20px 26px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+    @media print {
+      :root { color-scheme: light; --ink: #111; --muted: #333; }
+      body { color: #111; background: #fff; font-size: 11pt; }
+      .hero { background: #fff; color: #111; padding: 10px 0 20px; border: 0; }
+      .hero::before, .hero::after, .sidebar, .top-contact, .brand-mark, .footer { display: none; }
+      .hero-description, .eyebrow, .brand, .meta-pill { color: #333; }
+      .hero-copy { padding: 18px 0 0; }
+      .page-shell { display: block; margin: 0; padding: 0; }
+      .article { background: white; border: none; box-shadow: none; padding: 0; }
+      .intro, .contact-panel { background: white; border-color: #aaa; }
+      .intro p:last-child, .intro-label, .contact-panel p, .policy-section p,
+      .policy-section ul, h2, strong, .section-number { color: #111; }
+      .section-number { background: #eee; }
+      .policy-section { break-inside: avoid-page; border-color: #ddd; }
+      a { color: #135d65; }
+    }
   </style>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <div class="eyebrow">Mobile Games · Privacy</div>
-    <h1>Privacy Policy</h1>
-    <p>Publisher: <strong style="color:#fff">InertStudio</strong></p>
-    <p>Last updated: October 22, 2026</p>
+<a class="skip-link" href="#main-content">Skip to privacy policy</a>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="topbar">
+      <a class="brand" href="#top" aria-label="InertGames Privacy Policy home">
+        <span class="brand-mark" aria-hidden="true">IG</span>
+        <span>InertGames</span>
+      </a>
+      <a class="top-contact" href="mailto:inertstudio@yahoo.com">Contact us <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="hero-copy" id="top">
+      <div class="eyebrow">Mobile games · Privacy &amp; transparency</div>
+      <h1>Privacy Policy<span style="color:#6de2c6">.</span></h1>
+      <p class="hero-description">How InertGames handles information when you play our mobile games, including the use of Google AdMob advertising.</p>
+      <div class="hero-meta">
+        <span class="meta-pill"><span class="meta-dot" aria-hidden="true"></span> Publisher: InertGames</span>
+        <span class="meta-pill">Last updated: October 23, 2026</span>
+      </div>
+    </div>
   </div>
 </header>
-<main>
-  <div class="summary"><p>This Privacy Policy explains how mobile games published by <strong>InertStudio</strong> handle information, including when they display advertisements through <strong>Google AdMob</strong>.</p></div>
+<div class="page-shell">
+  <aside class="sidebar" aria-label="Policy navigation">
+    <nav aria-label="On this page">
+      <div class="sidebar-heading">On this page</div>
+      <ol class="toc">
+        <li><a href="#scope"><span class="toc-num">01</span> Scope</a></li>
+        <li><a href="#information"><span class="toc-num">02</span> Information we handle</a></li>
+        <li><a href="#use"><span class="toc-num">03</span> How data is used</a></li>
+        <li><a href="#advertising"><span class="toc-num">04</span> Advertising &amp; third parties</a></li>
+        <li><a href="#consent"><span class="toc-num">05</span> Consent &amp; choices</a></li>
+        <li><a href="#sharing"><span class="toc-num">06</span> Information sharing</a></li>
+        <li><a href="#retention"><span class="toc-num">07</span> Data retention</a></li>
+        <li><a href="#security"><span class="toc-num">08</span> Security</a></li>
+        <li><a href="#children"><span class="toc-num">09</span> Children's privacy</a></li>
+        <li><a href="#rights"><span class="toc-num">10</span> Your rights</a></li>
+        <li><a href="#changes"><span class="toc-num">11</span> Policy updates</a></li>
+        <li><a href="#contact"><span class="toc-num">12</span> Contact</a></li>
+      </ol>
+    </nav>
+    <div class="sidebar-note"><strong>Questions about privacy?</strong> Contact us using the email listed at the end of this policy.</div>
+  </aside>
+  <main class="article" id="main-content">
+    <div class="intro">
+      <div class="intro-symbol" aria-hidden="true">i</div>
+      <div>
+        <p class="intro-label">At a glance</p>
+        <p>This Privacy Policy explains how mobile games published by <strong>InertGames</strong> handle information, including when they display advertisements through <strong>Google AdMob</strong>.</p>
+      </div>
+    </div>
 
-  <h2>1. Scope</h2>
-  <p>This policy applies to Android mobile games published by <strong>InertStudio</strong> that link to this page from their Google Play listing or from within the app (together, “our games”). It is intended for games that use Google AdMob banner and/or rewarded advertisements. If a game uses additional data-collecting services, we will update this policy or provide an additional game-specific notice.</p>
+    <section class="policy-section" id="scope" aria-labelledby="scope-title">
+      <h2 id="scope-title"><span class="section-number">01</span> Scope</h2>
+      <p>This policy applies to Android mobile games published by <strong>InertGames</strong> that link to this page from their Google Play listing or from within the app (together, “our games”). It is intended for games that use Google AdMob banner, rewarded, and/or interstitial advertisements. A particular game may use only some of these formats. If a game uses additional data-collecting services, we will update this policy or provide an additional game-specific notice.</p>
+    </section>
 
-  <h2>2. Information handled through our games</h2>
-  <p>Our games may store game progress, scores, settings, and preferences locally on your device so that gameplay can continue and preferences can be remembered. Local data is generally not sent to us unless a particular game explicitly says otherwise.</p>
-  <p>Our games use Google AdMob to show advertisements. The Google Mobile Ads SDK may automatically collect and share information with Google, depending on the device, user settings, applicable law, and SDK configuration, including:</p>
-  <ul>
-    <li><strong>IP address</strong>, which may be used to estimate a device's general location;</li>
-    <li><strong>Device and app identifiers</strong>, such as the Android advertising ID or app set ID, where available and permitted;</li>
-    <li><strong>App and ad interactions</strong>, such as app launches, taps, ad impressions, and video views;</li>
-    <li><strong>Diagnostic and performance data</strong>, such as app launch time, stability indicators, and technical performance information.</li>
-  </ul>
-  <p>If you contact us by email, we will receive your email address and the information you choose to include in your message.</p>
+    <section class="policy-section" id="information" aria-labelledby="information-title">
+      <h2 id="information-title"><span class="section-number">02</span> Information handled through our games</h2>
+      <p>Our games may store game progress, scores, settings, and preferences locally on your device so that gameplay can continue and preferences can be remembered. Local data is generally not sent to us unless a particular game explicitly says otherwise.</p>
+      <p>Our games use Google AdMob to show advertisements. The Google Mobile Ads SDK may automatically collect and share information with Google, depending on the device, user settings, applicable law, and SDK configuration, including:</p>
+      <ul>
+        <li><strong>IP address</strong>, which may be used to estimate a device's general location;</li>
+        <li><strong>Device and app identifiers</strong>, such as the Android advertising ID or app set ID, where available and permitted;</li>
+        <li><strong>App and ad interactions</strong>, such as app launches, taps, ad impressions, and video views;</li>
+        <li><strong>Diagnostic and performance data</strong>, such as app launch time, stability indicators, and technical performance information.</li>
+      </ul>
+      <p>If you contact us by email, we will receive your email address and the information you choose to include in your message.</p>
+    </section>
 
-  <h2>3. How information is used</h2>
-  <p>Information may be processed to display and measure advertisements (including personalized or non-personalized ads, as applicable), deliver optional rewarded-video experiences, prevent advertising fraud and abuse, maintain the stability and security of ad services, save local gameplay preferences, and respond to support inquiries.</p>
+    <section class="policy-section" id="use" aria-labelledby="use-title">
+      <h2 id="use-title"><span class="section-number">03</span> How information is used</h2>
+      <p>Information may be processed to display and measure advertisements (including personalized or non-personalized ads, as applicable), deliver optional rewarded-ad experiences, prevent advertising fraud and abuse, maintain the stability and security of ad services, save local gameplay preferences, and respond to support inquiries.</p>
+    </section>
 
-  <h2>4. Advertising and third-party services</h2>
-  <p>Our games may display <strong>banner ads</strong> and <strong>rewarded ads</strong> powered by <strong>Google AdMob (Google LLC)</strong>. Rewarded ads are optional advertisements that users choose to view in exchange for an in-game benefit where available. Google may process information in accordance with its own policies and advertising settings.</p>
-  <p>For more information, see:</p>
-  <ul>
-    <li><a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
-    <li><a href="https://policies.google.com/technologies/ads">How Google uses information for advertising</a></li>
-    <li><a href="https://myadcenter.google.com/">Google My Ad Center</a></li>
-  </ul>
-  <p>Depending on the advertising configuration, Google may use advertising partners. Their processing is governed by applicable notices and consent choices.</p>
+    <section class="policy-section" id="advertising" aria-labelledby="advertising-title">
+      <h2 id="advertising-title"><span class="section-number">04</span> Advertising and third-party services</h2>
+      <p>Depending on the game, our games may display advertisements powered by <strong>Google AdMob (Google LLC)</strong>, including the following formats:</p>
+      <div class="ad-types" aria-label="Possible advertisement formats"><span class="ad-type">Banner ads</span><span class="ad-type">Rewarded ads</span><span class="ad-type">Interstitial ads</span></div>
+      <p>Rewarded ads are optional advertisements that users choose to view in exchange for an in-game benefit where available. Interstitial ads may appear at natural transition points during gameplay. Google may process information in accordance with its own policies and advertising settings.</p>
+      <p>For more information, see:</p>
+      <ul class="external-links">
+        <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></li>
+        <li><a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">How Google uses information for advertising</a></li>
+        <li><a href="https://myadcenter.google.com/" target="_blank" rel="noopener noreferrer">Google My Ad Center</a></li>
+      </ul>
+      <p>Depending on the advertising configuration, Google may use advertising partners. Their processing is governed by applicable notices and consent choices.</p>
+    </section>
 
-  <h2>5. Consent and advertising choices</h2>
-  <p>Where required by applicable law, advertising-related data processing is subject to appropriate disclosures and consent choices. This may include a consent message within a game for users in the European Economic Area, the United Kingdom, Switzerland, or other relevant locations. Where an in-app privacy options control is available, it can be used to review or change those choices.</p>
-  <p>You may also manage some advertising preferences and identifiers through your Android device settings and <a href="https://myadcenter.google.com/">Google My Ad Center</a>. Changing ad preferences does not necessarily remove all advertisements.</p>
+    <section class="policy-section" id="consent" aria-labelledby="consent-title">
+      <h2 id="consent-title"><span class="section-number">05</span> Consent and advertising choices</h2>
+      <p>Where required by applicable law, advertising-related data processing is subject to appropriate disclosures and consent choices. This may include a consent message within a game for users in the European Economic Area, the United Kingdom, Switzerland, or other relevant locations. Where an in-app privacy options control is available, it can be used to review or change those choices.</p>
+      <p>You may also manage some advertising preferences and identifiers through your Android device settings and <a href="https://myadcenter.google.com/">Google My Ad Center</a>. Changing ad preferences does not necessarily remove all advertisements.</p>
+    </section>
 
-  <h2>6. Information sharing</h2>
-  <p>Advertising-related information is transmitted to and processed by Google through the Google Mobile Ads SDK for ad delivery, measurement, reporting, and fraud prevention. We may receive aggregated advertising reports. Information sent to Google may be processed on infrastructure located in countries other than your own, subject to Google's applicable safeguards and policies. We do not publish your locally stored game progress to third parties under this policy.</p>
+    <section class="policy-section" id="sharing" aria-labelledby="sharing-title">
+      <h2 id="sharing-title"><span class="section-number">06</span> Information sharing</h2>
+      <p>Advertising-related information is transmitted to and processed by Google through the Google Mobile Ads SDK for ad delivery, measurement, reporting, and fraud prevention. We may receive aggregated advertising reports. Information sent to Google may be processed on infrastructure located in countries other than your own, subject to Google's applicable safeguards and policies. We do not publish your locally stored game progress to third parties under this policy.</p>
+    </section>
 
-  <h2>7. Data retention and deletion</h2>
-  <p>Game progress and preferences saved locally generally remain on your device until you reset the game, clear its app data, or uninstall it, subject to your device's backup and restore settings. Emails sent to us are kept only as long as reasonably necessary to address the inquiry and meet applicable legal obligations.</p>
-  <p>Google manages the retention of information processed through AdMob according to its own policies. You can use Google's privacy controls and contact us at the address below with questions or requests relating to information handled by us.</p>
+    <section class="policy-section" id="retention" aria-labelledby="retention-title">
+      <h2 id="retention-title"><span class="section-number">07</span> Data retention and deletion</h2>
+      <p>Game progress and preferences saved locally generally remain on your device until you reset the game, clear its app data, or uninstall it, subject to your device's backup and restore settings. Emails sent to us are kept only as long as reasonably necessary to address the inquiry and meet applicable legal obligations.</p>
+      <p>Google manages the retention of information processed through AdMob according to its own policies. You can use Google's privacy controls and contact us at the address below with questions or requests relating to information handled by us.</p>
+    </section>
 
-  <h2>8. Security</h2>
-  <p>We aim to limit data handling to what is needed for gameplay and advertising. Google states that the Google Mobile Ads SDK encrypts the data it transmits using transport-layer security. No method of data storage or transmission can be guaranteed completely secure.</p>
+    <section class="policy-section" id="security" aria-labelledby="security-title">
+      <h2 id="security-title"><span class="section-number">08</span> Security</h2>
+      <p>We aim to limit data handling to what is needed for gameplay and advertising. Google states that the Google Mobile Ads SDK encrypts the data it transmits using transport-layer security. No method of data storage or transmission can be guaranteed completely secure.</p>
+    </section>
 
-  <h2>9. Children's privacy</h2>
-  <p>Games intended for children, or games made available to a mixed audience that includes children, may require additional disclosures, age-appropriate advertising settings, and other protections. Such requirements are evaluated for each game, including Google Play's Families policies and applicable children's privacy laws. If you have a concern about a child's information, please contact us.</p>
+    <section class="policy-section" id="children" aria-labelledby="children-title">
+      <h2 id="children-title"><span class="section-number">09</span> Children's privacy</h2>
+      <p>Games intended for children, or games made available to a mixed audience that includes children, may require additional disclosures, age-appropriate advertising settings, and other protections. Such requirements are evaluated for each game, including Google Play's Families policies and applicable children's privacy laws. If you have a concern about a child's information, please contact us.</p>
+    </section>
 
-  <h2>10. Your rights</h2>
-  <p>Depending on where you live, you may have rights to request access to, correction of, or deletion of personal data that we hold, to object to or restrict certain processing, or to withdraw consent where applicable. Contact us using the details below to exercise rights in relation to data handled by us. For information processed independently by Google, consult Google's privacy controls and policies.</p>
+    <section class="policy-section" id="rights" aria-labelledby="rights-title">
+      <h2 id="rights-title"><span class="section-number">10</span> Your rights</h2>
+      <p>Depending on where you live, you may have rights to request access to, correction of, or deletion of personal data that we hold, to object to or restrict certain processing, or to withdraw consent where applicable. Contact us using the details below to exercise rights in relation to data handled by us. For information processed independently by Google, consult Google's privacy controls and policies.</p>
+    </section>
 
-  <h2>11. Changes to this policy</h2>
-  <p>We may update this policy when our games, advertising services, or legal obligations change. We will post the updated version on this page and revise the “Last updated” date.</p>
+    <section class="policy-section" id="changes" aria-labelledby="changes-title">
+      <h2 id="changes-title"><span class="section-number">11</span> Changes to this policy</h2>
+      <p>We may update this policy when our games, advertising services, or legal obligations change. We will post the updated version on this page and revise the “Last updated” date.</p>
+    </section>
 
-  <h2>12. Contact</h2>
-  <p>Publisher / developer: <strong>InertStudio</strong></p>
-  <p>Privacy contact: <a href="mailto:inertstudio@yahoo.com">inertstudio@yahoo.com</a></p>
-  <p>If you have questions about this Privacy Policy or our games' data practices, please contact us at the email address above.</p>
-</main>
-<footer>Privacy Policy for mobile games published by InertStudio.</footer>
+    <section class="policy-section" id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title"><span class="section-number">12</span> Contact</h2>
+      <div class="contact-panel">
+        <p>Publisher / developer: <strong>InertGames</strong></p>
+        <p>Privacy contact: <a class="mail" href="mailto:inertstudio@yahoo.com">inertstudio@yahoo.com</a></p>
+        <p>If you have questions about this Privacy Policy or our games' data practices, please contact us at the email address above.</p>
+      </div>
+    </section>
+  </main>
+</div>
+<footer class="footer">
+  <span>© 2026 <strong>InertGames</strong> · Privacy Policy</span>
+  <span>For mobile games published by InertGames</span>
+</footer>
 </body>
 </html>
